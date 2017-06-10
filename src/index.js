@@ -1,12 +1,11 @@
 'use strict';
 // Importing Alexa SDK
-var Alexa = require('alexa-sdk')
-//var appdId = 'amzn1.ask.skill.289c300b-f562-425c-b66b-4bef7b2e0d0c';
+var Alexa = require('alexa-sdk');
 
 // Exporting the handler
 exports.handler = function(event, context, callback){
     var alexa = Alexa.handler(event, context);
-    alexa.appId = 'amzn1.ask.skill.289c300b-f562-425c-b66b-4bef7b2e0d0c'; // App ID given on Amazon Developers console 
+    //alexa.appId = appId; // App ID given on Amazon Developers console 
     alexa.dynamoDBTableName = 'highLowGuessUsers'; // Links session attributes to DB for persistence
     alexa.registerHandlers(newSessionHandlers, guessModeHandlers, startGameHandlers, guessAttemptHandlers); // register multiple handlers using this same method with ,
     alexa.execute();
